@@ -4,6 +4,14 @@
 
 A set of essential and user-specific validation utilities for Express applications, built using `express-validator`. This package provides reusable validation functions for common use cases like URL, phone number, email, username, and more.
 
+---
+
+### **What You Need to Update**
+
+`https://github.com/nyi-nyi-phone-hlaing/validator-x.git`
+
+---
+
 ## Installation
 
 To install the package, run the following command:
@@ -11,6 +19,8 @@ To install the package, run the following command:
 ```bash
 npm install validator-x
 ```
+
+---
 
 ## Usage
 
@@ -51,6 +61,8 @@ app.listen(3000, () => {
 });
 ```
 
+---
+
 ## Validation Functions
 
 ### `checkName = ( fieldName = "name", min = 2, max = 50, allowSpaces = true, allowSpecialChars = false )`
@@ -59,14 +71,14 @@ app.listen(3000, () => {
 checkName("name", 4, 20, false, true);
 ```
 
-### checkEmail = ( fieldName = "email", required = true, allowedDomains = [] )
+### `checkEmail = ( fieldName = "email", required = true, allowedDomains = [] )`
 
 ```javascript
 // Optional list of allowed domains (e.g., ["gmail.com", "yahoo.com"])
 checkName("email", false, ["gamil.com"]);
 ```
 
-### checkPassword = ( fieldName = "password", minLength = 8, maxLength = 23, requireUppercase = true, requireLowercase = true, requireNumber = true, requireSpecialChar = true )
+### `checkPassword = ( fieldName = "password", minLength = 8, maxLength = 23, requireUppercase = true, requireLowercase = true, requireNumber = true, requireSpecialChar = true )`
 
 ```javascript
 checkPassword("password", 6, 30, true, false, false, true);
@@ -288,15 +300,15 @@ checkTimezone("timezone", [
 ]);
 ```
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
 ### Explanation:
 
 - **Installation**: This section provides users with the command to install the package.
 - **Usage**: This section shows how to use the validation functions in an Express app.
 - **Validation Functions**: A list of all the validation functions you provide, with examples of how to use each one.
+
+---
 
 ## Author
 
