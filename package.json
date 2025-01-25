@@ -1,0 +1,28 @@
+{
+  "name": "validator-x",
+  "version": "1.0.0",
+  "description": "A utility package for validating fields with express-validator.",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No test specified\" && exit 1",
+    "lint": "eslint . --fix"
+  },
+  "keywords": [
+    "validation",
+    "express-validator",
+    "utility",
+    "validator-x"
+  ],
+  "author": "Nyi Nyi Phone Hlaing",
+  "license": "MIT",
+  "dependencies": {
+    "express-validator": "^7.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^8.57.1",
+    "globals": "^15.14.0"
+  }
+}
