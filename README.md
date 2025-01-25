@@ -17,7 +17,7 @@ A set of essential and user-specific validation utilities for Express applicatio
 To install the package, run the following command:
 
 ```bash
-npm install validator-x
+npm install @nyi_nyi_phone_hlaing/validator-x
 ```
 
 ---
@@ -33,7 +33,7 @@ const {
   checkPhoneNumber,
   checkUsername,
   checkEmail,
-} = require("validator-x");
+} = require("@nyi_nyi_phone_hlaing/validator-x");
 const { validationResult } = require("express-validator");
 
 const app = express();

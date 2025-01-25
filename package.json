@@ -1,5 +1,5 @@
 {
-  "name": "validator-x",
+  "name": "@nyi_nyi_phone_hlaing/validator-x",
   "version": "1.0.0",
   "description": "A utility package for validating fields with express-validator.",
   "main": "index.js",
