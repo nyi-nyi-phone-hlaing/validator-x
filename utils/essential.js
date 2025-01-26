@@ -135,7 +135,7 @@ const checkPhoneNumberByLocale = (fieldName = "phone", locale = "any") => [
 ];
 
 // Email validation based on a locale
-const checkLocalizedEmail = (fieldName = "email", locale = "en-US") => [
+const checkLocalizedEmail = (fieldName = "email") => [
   body(fieldName)
     .isEmail()
     .withMessage(`${fieldName} must be a valid email`)
@@ -210,7 +210,7 @@ const checkLatinText = (fieldName = "text") => [
 ];
 
 // Gender validation for a global application
-const checkGender = (fieldName = "gender", locale = "en-US") => [
+const checkGender = (fieldName = "gender") => [
   body(fieldName)
     .isIn(["male", "female", "non-binary", "other"]) // You can adjust options based on your localization needs
     .withMessage(`${fieldName} must be one of the valid gender options`),
@@ -237,6 +237,18 @@ const checkTimezone = (
     })
     .withMessage(`${fieldName} must be a valid IANA timezone`),
 ];
+
+// Custom validator function to check if value is part of the allowed enum values
+const checkEnum = (fieldName = "role", enumValues = ["user", "admin"]) => {
+  return body(fieldName).custom((value) => {
+    if (!enumValues.includes(value)) {
+      throw new Error(
+        `Invalid value. Allowed values are: ${enumValues.join(", ")}`
+      );
+    }
+    return true; // If the value is valid, return true
+  });
+};
 
 module.exports = {
   checkURL,
@@ -265,4 +277,5 @@ module.exports = {
   checkLatinText,
   checkGender,
   checkTimezone,
+  checkEnum,
 };

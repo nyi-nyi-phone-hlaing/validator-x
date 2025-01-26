@@ -10,9 +10,15 @@ const checkName = (
   let regex;
 
   if (allowSpecialChars) {
-    regex = allowSpaces ? /^[a-zA-Z\s\-']+$/ : /^[a-zA-Z\-']+$/;
+    // If special characters are allowed, allow letters, spaces, hyphens, apostrophes, and underscores
+    regex = allowSpaces
+      ? /^[a-zA-Z\s\-_'_]+$/ // Allow letters, spaces, hyphens, apostrophes, and underscores
+      : /^[a-zA-Z\-_'_]+$/; // Allow letters, hyphens, apostrophes, and underscores
   } else {
-    regex = allowSpaces ? /^[a-zA-Z\s]+$/ : /^[a-zA-Z]+$/;
+    // If special characters are not allowed, only allow letters (and spaces if allowed)
+    regex = allowSpaces
+      ? /^[a-zA-Z\s]+$/ // Allow letters and spaces
+      : /^[a-zA-Z]+$/; // Only allow letters
   }
 
   return [
@@ -25,8 +31,8 @@ const checkName = (
       .matches(regex)
       .withMessage(
         `${fieldName} can only contain ${
-          allowSpaces ? "letters and spaces" : "letters"
-        }${allowSpecialChars ? ", hyphens, and apostrophes" : ""}`
+          allowSpaces ? "letters, spaces" : "letters"
+        }${allowSpecialChars ? ", hyphens, apostrophes, and underscores" : ""}`
       ),
   ];
 };

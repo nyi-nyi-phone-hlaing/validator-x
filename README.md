@@ -300,6 +300,12 @@ checkTimezone("timezone", [
 ]);
 ```
 
+### `checkEnum(fieldName = "role" , enumValues = ["user", "admin"])`
+
+```javascript
+  checkEnum("gender", ["male", "female", "other"]),
+```
+
 ---
 
 ### Explanation:
