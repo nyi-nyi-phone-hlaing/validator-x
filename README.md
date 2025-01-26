@@ -184,12 +184,12 @@ Validates if the email is unique in the database.
 checkUniqueEmail("email");
 ```
 
-### `checkUniqueUsername(fieldName = 'username', model)`
+### `checkUnique( fieldName = "username", model, key = "username", message = "")`
 
 Validates if the username is unique in the specified model's database.
 
 ```javascript
-checkUniqueUsername("username", UserModel);
+checkUnique("username", User, "username", "username has already taken");
 ```
 
 ### `checkCustomUnique(fieldName, model, field)`

@@ -91,17 +91,26 @@ const checkUniqueEmail = (fieldName = "email", model) => [
     .withMessage(`${fieldName} must be unique`),
 ];
 
-// Check if username is unique (using the passed model)
-const checkUniqueUsername = (fieldName = "username", model) => [
+// Check if the field (username) is unique (using the passed model)
+const checkUnique = (
+  fieldName = "username",
+  model,
+  key = "username",
+  message = ""
+) => [
   body(fieldName)
     .custom(async (value) => {
-      const existingUser = await model.findOne({ username: value });
+      // Dynamically create the query object based on 'key'
+      const query = {};
+      query[key] = value;
+
+      const existingUser = await model.findOne(query);
       if (existingUser) {
-        throw new Error(`${fieldName} is already taken`);
+        throw new Error(`${existingUser.key} is already taken`);
       }
-      return true; // Return true if no existing user with the same username
+      return true; // Return true if no existing user with the same field value
     })
-    .withMessage(`${fieldName} must be unique`),
+    .withMessage(message),
 ];
 
 // Generalized check for unique fields in any model (using the passed model and field)
@@ -263,7 +272,7 @@ module.exports = {
   checkJSON,
   checkBoolean,
   checkUniqueEmail,
-  checkUniqueUsername,
+  checkUnique,
   checkCustomUnique,
   checkArray,
   checkPhoneNumberByLocale,
